@@ -1,0 +1,385 @@
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans';
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Droid Sans';
+    color: white;
+}
+
+.wrapper {
+    width: 1360px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    height: 550px;
+    flex: 1;
+}
+@media screen and (max-width: 1360px) {
+    .wrapper {
+        width: 1088px;
+    }
+}
+@media screen and (max-width: 1088px) {
+    .wrapper {
+        width: 816px;
+    }
+}
+@media screen and (max-width: 816px) {
+    .wrapper {
+        width: 544px;
+    }
+}
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('./fonts/fontawesome-webfont.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+.searchForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.searchForm.top {
+    top: 50px;
+    transform: translate(-50%, 0);
+    z-index: 99;
+}
+
+.result:before {
+    content: '';
+    display: block;
+    height: 25px;
+    width: 100%;
+    background-color: #336699;
+    border-bottom: 5px solid #CCFF66;
+}
+
+.searchResult {
+    height: 100px;
+}
+
+.searchInput {
+    border: 1px solid #336699;
+    color: #888888;
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    height: 35px;
+    line-height: 35px;
+    outline: medium none;
+    padding: 0 0 0 10px;
+    text-shadow: 1px 1px 0 white;
+    width: 350px;
+    box-shadow: none;
+}
+
+.searchForm button {
+    border: 1px solid #336699;
+    background: #336699;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    position: relative;
+    transition: background 300ms;
+    box-shadow: none;
+}
+
+.searchForm button::after {
+    content: "\f002";
+    font-family: FontAwesome;
+    color: white;
+    font-size: 15px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    left: 0;
+    top: 0;
+}
+
+.searchForm button:hover {
+    background: #2e5b89;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.flex-container {
+    position: absolute;
+    z-index: 99;
+    padding: 0;
+    top: 130px;
+    left: 0px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-item {
+    width: 252px;
+    height: 430px;
+    color: #151619;
+    font-size: 0.7rem;
+    border: 1px solid #336699;
+    margin: 0 10px;
+    padding-bottom: 5px;
+}
+
+.flex-item:before {
+    content: '';
+    height: 20px;
+    width: 100%;
+    display: block;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+.color-square {
+    height: 4rem;
+    overflow: hidden;
+    padding: 0 3px;
+    line-height: 4rem;
+}
+
+.color-square p {
+    font-size: 0.8rem;
+    text-align: center;
+    /*margin: 0 auto;*/
+    display: inline-block;
+    width: 240px;
+    vertical-align: middle;
+    line-height: 1.25;
+}
+
+.image {
+    position: relative;
+    margin-top: 3px;
+    border-top: 10px solid #336699;
+    padding: 0;
+}
+
+.image p {
+    text-align: center;
+    font-size: 0.6rem;
+    margin: 1px auto;
+    min-height: 24px;
+}
+
+.image p span {
+    text-align: center;
+    font-size: 0.7rem;
+}
+
+.flex-item img {
+    width: 250px;
+    height: 140px;
+    margin: 8px 0;
+}
+
+.bookmark {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background-color: #FF6B6B;
+    width: 50px;
+    height: 25px;
+    color: white;
+}
+
+.bookmark:after {
+    content: '';
+    display: block;
+    margin-top: -1px;
+    border-left: 25px solid #FF6B6B;
+    border-right: 25px solid #FF6B6B;
+    border-bottom: 10px solid transparent;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+.info {
+    padding-left: 46px;
+    padding-right: 5px;
+    position: relative;
+    margin-top: 8px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.info:before {
+    font-family: FontAwesome;
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    left: 8px;
+    top: 0;
+}
+
+.author:before {
+    content: "\f21b";
+    background-color: #FF6B6B;
+}
+
+.publishedAt:before {
+    content: "\f073";
+    background-color: #874485;
+}
+
+.description {
+    overflow: hidden;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    height: auto;
+}
+
+.description:before {
+    content: "\f129";
+    background-color: #336699;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+.flex-item:nth-child(5n-4):before,
+.flex-item:nth-child(5n-4) .color-square {
+    background-color: #336699;
+}
+
+.flex-item:nth-child(5n-3):before,
+.flex-item:nth-child(5n-3) .color-square {
+    background-color: #99FFFF;
+
+}
+
+.flex-item:nth-child(5n-3) .color-square p,
+.flex-item:nth-child(5n-2) .color-square p {
+    color: #4a4d58;
+}
+
+.flex-item:nth-child(5n-2):before,
+.flex-item:nth-child(5n-2) .color-square {
+    background-color: #CCFF66;
+}
+
+.flex-item:nth-child(5n-1):before,
+.flex-item:nth-child(5n-1) .color-square {
+    background-color: #FF6B6B;
+}
+
+.flex-item:nth-child(5n):before,
+.flex-item:nth-child(5n) .color-square {
+    background-color: #874485;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+.paging {
+    margin: 10px auto 20px;
+    text-align: center;
+    width: 120px;
+}
+
+.paging a {
+    display: inline-block;
+    margin: auto 5px;
+    height: 15px;
+    width: 15px;
+    text-decoration: none;
+    font-size: 0.6rem;
+    vertical-align: bottom;
+}
+
+.paging a span {
+    display: none;
+    text-align: center;
+    line-height: 15px;
+    font-size: 0.6rem;
+}
+
+.paging a:hover span {
+    display: inline;
+}
+
+.paging .active.fakehover span {
+    display: inline;
+    line-height: 13px;
+}
+
+.paging a.color1 {
+    background-color: #99FFFF;
+    color: #4a4d58;
+}
+
+.paging a.color2 {
+    background-color: #CCFF66;
+    color: #4a4d58;
+}
+
+.paging a.color3 {
+    background-color: #FF6B6B;
+}
+
+.paging a.color4 {
+    background-color: #874485;
+}
+
+.paging a.active {
+    border: 2px solid #2e5b89;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 544px) {
+    .wrapper {
+        width: 252px;
+    }
+
+    .searchForm {
+        top: 20%;
+    }
+
+    .searchInput {
+        width: 150px;
+    }
+
+    .searchForm.top {
+        top: 30px;
+    }
+
+    .bookmark:after {
+        margin-top: -1px;
+    }
+
+    .result:before {
+        height: 15px;
+    }
+
+    .flex-container {
+        margin-top: 0;
+        top: 110px;
+    }
+
+    .flex-item {
+        margin-left: 0;
+    }
+
+    .paging {
+        margin: 20px auto 50px;
+    }
+}
